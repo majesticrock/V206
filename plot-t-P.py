@@ -9,8 +9,8 @@ def csv_read(pathToFile, delimiter=";"):
             content.append((line.rstrip()).split(delimiter))
     return content
 
-def func(x, a, b, c):
-    return a*x**2 + b*x + c
+def func(x, a, b, c, d):
+    return a*x**3 + b*x**2 + c*x + d
 
 werte = csv_read("csv/zeit-leistung.csv")
 xdata = np.zeros(18)
