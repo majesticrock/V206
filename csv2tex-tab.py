@@ -3,7 +3,7 @@
 #<pathToFile>:  Input the path to your input file
 #<caption>:     The caption you'd like to have for the table
 #<label>:       The label you'd like to have for the table. This is also the name for the output file
-#<format>:      The table format. For expample cccc for a for four coloumns with centered entries
+#<format>:      The table format. For expample cccc for a for four columns with centered entries
 #<delimiter>:   The delimiter of the csv-file. If you don't give this argument, the standard value is set to ";"
 #
 #The csv-file should be formated like this:
@@ -12,7 +12,7 @@
 #entry21;entry22;entry33
 #etc
 #
-#You should have an equal amount of coloums in every row. The rows should not end with your delimiter.
+#You should have an equal amount of colums in every row. The rows should not end with your delimiter.
 #
 #You will need to have a directory named "content" relative to the location of this python-file.
 #This script probably won't work on Windows systems. Install a linux distribution.
@@ -58,7 +58,4 @@ def csv2textable(pathToFile, caption, label, format, delimiter=";"):
         f.write("\\bottomrule\n")
         f.write(fileEnd)
 
-
-csv2textable("csv/zeit-temperatur.csv", "Die gemessenen Temperaturen zu den jeweiligen Zeitpunkten.", "zeit-temp", "S[table-format=4.0] c S[table-format=1.0] S[table-format=3.1] c S[table-format=1.1 S[table-format=3.1] c S[table-format=1.1")
-csv2textable("csv/temperatur-druck1.csv", "Reservoir 1", "temp-druck", "S[table-format=3.1] c S[table-format=2.1] S[table-format=1.1] c S[table-format=1.1]")
-csv2textable("csv/temperatur-druck2.csv", "Reservoir 2", "temp-druck2", "S[table-format=3.1] c S[table-format=1.1] S[table-format=1.1] c S[table-format=1.1]")
+csv2textable("csv/zeit-leistung.csv", "Die vom Kompressor genutzte elektrische Leistung.", "leistung", "S[table-format=4.0] @{${}\pm{}$} S[table-format=1.0] S[table-format=3.0] @{${}\pm{}$} S[table-format=1.0]")
