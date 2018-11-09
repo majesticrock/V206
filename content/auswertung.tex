@@ -10,21 +10,100 @@
   \label{fig:plot_zeit-temp}
 \end{figure}
 
+Die Messwerte in \autoref{tab:zeit-temp} wurden in einem Diagramm dargestellt und mithilfe von Python 3.7.0 durch einen Fit der Form $T(t) = at² + bt + c$ angenähert.
+Dieses ist in \autoref{fig:plot_zeit-temp} zu sehen.
+%Werte einfügen
+Der Differentialquotient $\frac{\text{d}T_1}{\text{d}t}$ beziehungsweise $\frac{\text{d}T_2}{\text{d}t}$ lässt sich als
+\\ \\
+\centerline{$T'_1 = 2at + b$}
+\\ \\
+bestimmen. 
+Der Fehler dieser Größen lässt sich mithilfe der Gauß'schen Fehlerfortpflanzung
+\begin{equation}
+  \label{eqn:fehlerfortpflanzung}
+  \sigma_\text{u}^2 = \sum\!\bigg(\frac{\partial u}{\partial x_i}\bigg)^2 \! \sigma_i^2
+\end{equation}
+berechnen.
+In diese werden die Werte eingesetzt, um so $\sigma_\text{$T'_1$}$ und $\sigma_\text{$T'_2$}$ zu berechnen:
+\\ \\ %Fehlerrechnung einfügen
+\centerline{$\sigma_\text{$T'_1$} = \sqrt{a}$}
+\\ \\
+Somit finden sich die Werte, die in \autoref{tab:temp-temp-ableitung} zu sehen sind. 
+%zeiten 180 540 720 1020
+\begin{table}[!htp]
+  \centering
+  \caption{Die errechnten Änderungen der Temperaturen.}
+  \label{tab:temp-temp-ableitung}
+  \begin{tabular}{
+    S[table-format=3.1] @{${}\pm{}$} S[table-format=1.0]
+    S[table-format=3.1] @{${}\pm{}$} S[table-format=1.0]
+    S[table-format=1.4] @{${}\pm{}$} S[table-format=1.0]
+    S[table-format=2.4] @{${}\pm{}$} S[table-format=1.0]}
+    \toprule
+    \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$T_2$ / K} & \multicolumn{2}{c}{$T'_1$ / K} & \multicolumn{2}{c}{$T'_2$ / K} \\
+    \midrule
+    301.3 & 0.1 & 292.3 & 0.1 & 0.0280 & 0 & -0.0280 & 0 \\
+    310.3 & 0.1 & 283.7 & 0.1 & 0.0268 & 0 & -0.0242 & 0 \\
+    315.0 & 0.1 & 279.3 & 0.1 & 0.0258 & 0 & -0.0212 & 0 \\
+    322.3 & 0.1 & 274.0 & 0.1 & 0.0248 & 0 & -0.0181 & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Des weiteren lässt die Wärmekapazität des Wassers $C_w$ mit
+\\ \\
+\centerline{$C_w = m_w c_w = \rho_w V_w c_w$}
+\\ \\
+berechnen. Der Fehler wird mithilfe von \autoref{eqn:fehlerfortpflanzung} errechnet:
+\\ \\
+\centerline{$\sigma_\text{$C_w$} = \rho_w c_w \sigma_V$}
+\centerline{$C_w = (12.5 \pm 0.5) \cdot 10³ \frac{\textrm{J}}{\textrm{K}}$}
+\\ \\
+Die Wärmekapazität der Kupferschlange und des Behälters $C_k$ beträgt 
+\\ \\
+\centerline{$C_w = m_k c_k = 750 \frac{\textrm{J}}{\textrm{K}}$.}
+\\ \\
+Diese Werte werden in GLEICHUNG eingsetzt, um so die Güteziffern $\nu$ zu errechnen. 
+Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von \autoref{eqn:fehlerfortpflanzung} berechnen.
+\\ \\
+\centerline{$\sigma_\nu^2 = 1 \cdot \sigma_\text{$T'_1$}^2 + \bigg(\frac{\text{d}T_1}{\text{d}t}\bigg)^2 \sigma_\text{$C_w$}^2$}
+\\ \\
+Diese sind in \autoref{tab:temp-guete} zu finden.
+
+\begin{table}[!htp]
+  \centering
+  \caption{Die Güteziffern bei unterschiedlichen Temperaturen.}
+  \label{tab:temp-guete}
+  \begin{tabular}{
+    S[table-format=3.1] @{${}\pm{}$} S[table-format=1.0]
+    S[table-format=1.3] @{${}\pm{}$} S[table-format=1.0]
+    S[table-format=1.0]}
+    \toprule
+    \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$\nu$} & {$\nu_\text{ideal}$} \\
+    \midrule
+    301.3 & 0.1 & 1.903 & 0 & 0 \\
+    310.3 & 0.1 & 1.732 & 0 & 0 \\
+    315.0 & 0.1 & 1.627 & 0 & 0 \\
+    322.3 & 0.1 & 1.528 & 0 & 0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\input{../content/temp-druck.tex}
+
 \begin{figure}
   \centering
   \includegraphics{plot-T-p1.pdf}
   \caption{Die Temperaturen und der Druck in Reservoir 1 gegeneinander aufgetragen.}
-  \label{fig:plot_zeit-temp}
+  \label{fig:plot_temp-druck1}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics{plot-T-p2.pdf}
   \caption{Die Temperaturen und der Druck in Reservoir 2 gegeneinander aufgetragen.}
-  \label{fig:plot_zeit-temp}
+  \label{fig:plot_temp-druck2}
 \end{figure}
-
-\input{../content/temp-druck.tex}
 
 \input{../content/zeit-leistung.tex}
 

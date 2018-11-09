@@ -45,6 +45,9 @@ plt.plot(x_line, func(x_line, *popt2), "g-", label="Fit T2")
 plt.xlabel(r"$t$ / s")
 plt.ylabel(r"$T$ / K")
 
+print(popt1)
+print(popt2)
+
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot-t-T.pdf")
