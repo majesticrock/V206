@@ -16,6 +16,9 @@ werte = csv_read("csv/zeit-temperatur.csv")
 xdata = np.zeros(18)
 ydata1 = np.zeros(18)
 ydata2 = np.zeros(18)
+errX = np.zeros(18)
+errY1 = np.zeros(18)
+errY2 = np.zeros(18)
 
 ignore = True
 i=0
@@ -26,11 +29,14 @@ for values in werte:
         xdata[i] = float(values[0])
         ydata1[i] = float(values[2])
         ydata2[i] = float(values[4])
+        errX[i] = float(values[1])
+        errY1[i] = float(values[3])
+        errY2[i] = float(values[5])
         i+=1
 
 x_line = np.linspace(0, 1080)
-plt.plot(xdata, ydata1, "y+", label="Messwerte T1")
-plt.plot(xdata, ydata2, "b+", label="Messwerte T2")
+plt.errorbar(xdata, ydata1, xerr = errX, yerr = errY1, fmt= ".", label="Messwerte T1")
+plt.errorbar(xdata, ydata2, xerr = errX, yerr = errY2, fmt = ".", label="Messwerte T2")
 popt1, pcov1 = curve_fit(func, xdata, ydata1)
 popt2, pcov2 = curve_fit(func, xdata, ydata2)
 plt.plot(x_line, func(x_line, *popt1), "r-", label="Fit T1")

@@ -15,6 +15,8 @@ def func(x, a, b, c):
 werte = csv_read("csv/temperatur-druck1.csv")
 xdata = np.zeros(18)
 ydata = np.zeros(18)
+errX = np.zeros(18)
+errY = np.zeros(18)
 
 ignore = True
 i=0
@@ -24,10 +26,12 @@ for values in werte:
     else:
         xdata[i] = float(values[0])
         ydata[i] = float(values[2])
+        errX[i] = float(values[1])
+        errY[i] = float(values[3])
         i+=1
 
 x_line = np.linspace(297.7, 323.6)
-plt.plot(xdata, ydata, "b+", label="Messwerte")
+plt.errorbar(xdata, ydata, xerr = errX, yerr= errY, fmt = ".", label="Messwerte")
 popt, pcov = curve_fit(func, xdata, ydata)
 plt.plot(x_line, func(x_line, *popt), "r-", label="Fit")
 
