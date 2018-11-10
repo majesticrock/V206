@@ -13,8 +13,10 @@ build/plot-T-p2.pdf: plot-T-p2.py matplotlibrc header-matplotlib.tex csv/tempera
 build/plot-t-P.pdf: plot-t-P.py matplotlibrc header-matplotlib.tex csv/zeit-leistung.csv | build
 	TEXINPUTS=$$(pwd): python plot-t-P.py
 
+build/plot-L.pdf: l_plot.py matplotlibrc header-matplotlib.tex csv/tempbar.csv | build
+	TEXINPUTS=$$(pwd): python l_plot.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: content/temp-druck.tex content/zeit-temp.tex content/zeit-leistung.tex build/plot-t-T.pdf build/plot-T-p1.pdf build/plot-T-p2.pdf build/plot-t-P.pdf
+build/main.pdf: content/temp-druck.tex content/zeit-temp.tex content/zeit-leistung.tex content/temppascal.tex build/plot-t-T.pdf build/plot-T-p1.pdf build/plot-T-p2.pdf build/plot-t-P.pdf build/plot-L.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

@@ -7,8 +7,8 @@
   mechanische Arbeit umzukehren. Die Wärmepumpe ist dabei wie in Abbildung \ref{fig:skizze} dargestellt aufgebaut.
   \begin{figure}
     \centering
-    \includegraphics{content/skizze.png}
-    \caption{Schematischer Aufbau der Wärmepumpe ***Abbildung noch fehlend*** \cite[193]{206}}
+    \includegraphics[width=\textwidth]{content/skizze.png}
+    \caption{Schematischer Aufbau der Wärmepumpe \cite[193]{206}}
     \label{fig:skizze}
   \end{figure}
   Der Körper welcher in der Abbildung als Reservoir 1 bezeichnet wird, ist das Objekt, welches beheizt werden soll; das Reservoir 2 liefert die hierzu notwendige Energie.
@@ -36,7 +36,7 @@
       \label{eqt:güte_temp}
       \frac{Q_1}{T_1} - \frac{Q_2}{T_2} = 0 .
     \end{equation}
-    Aus den Gleichungen \ref{eqt:gg} und \ref{eqt:güte_temp} lässt sich die Güte einer idealisierten Wärmepumpe als
+    Aus den Gleichungen \eqref{eqt:gg} und \eqref{eqt:güte_temp} lässt sich die Güte einer idealisierten Wärmepumpe als
     \begin{equation}
       \label{eqt:Güte}
       \nu_\text{ideal} = \frac {T_1}{T_1 - T_2}
@@ -66,10 +66,10 @@
       \label{eqt:verdampf}
       \frac {\Delta Q_2}{\Delta t} = L \frac {\Delta m} {\Delta t} .
     \end{equation}
-    Werden \ref {eqt:Diff_2} und \ref {eqt:verdampf} zusammmengesetzt, so gilt für den Massendurchsatz:
+    Werden \eqref {eqt:Diff_2} und \eqref {eqt:verdampf} zusammmengesetzt, so gilt für den Massendurchsatz:
     \begin{equation}
       \label{eqt:massendurchsatz}
-      \frac {\Delta Q_2} {\Delta t} = \frac {(m_2 c_2 + m_k c_k)}{L} \frac {\Delta T_2} {\Delta t} .
+      \frac {\Delta m} {\Delta t} = \frac {(m_2 c_2 + m_k c_k)}{L} \frac {\Delta T_2} {\Delta t} .
     \end{equation}
 
   \subsection{Mechanische Kompressorleistung}
@@ -88,7 +88,7 @@
       \label{eqt:poisson}
       p_a V_a^\kappa = p_b V_b^\kappa = p V^\kappa .
     \end{equation}
-    Mittels der Gleichungen \ref {eqt:mech_arbeit} und \ref {eqt:poisson} lässt sich die mechanische Leistung schließlich als
+    Mittels der Gleichungen \eqref {eqt:mech_arbeit} und \eqref {eqt:poisson} lässt sich die mechanische Leistung schließlich als
     \begin{equation}
       \label{eqt:mech_leistung}
       P = \frac {\Delta A_m} {\Delta t} = \frac {1}{\kappa -1} (p_b \sqrt[\kappa]{\frac{p_a}{p_b} - p_a } )  

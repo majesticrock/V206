@@ -54,7 +54,7 @@ Des weiteren lässt die Wärmekapazität des Wassers $C_w$ mit
 \\ \\
 \centerline{$C_w = m_w c_w = \rho_w V_w c_w$}
 \\ \\
-berechnen. Der Fehler wird mithilfe von \autoref{eqn:fehlerfortpflanzung} errechnet:
+berechnen. Der Fehler wird mithilfe von Gleichung \eqref{eqn:fehlerfortpflanzung} errechnet:
 \\ \\
 \centerline{$\sigma_\text{$C_w$} = \rho_w c_w \sigma_V$}
 \centerline{$C_w = (12.5 \pm 0.5) \cdot 10³ \frac{\textrm{J}}{\textrm{K}}$}
@@ -64,7 +64,7 @@ Die Wärmekapazität der Kupferschlange und des Behälters $C_k$ beträgt
 \centerline{$C_w = m_k c_k = 750 \frac{\textrm{J}}{\textrm{K}}$.}
 \\ \\
 Diese Werte werden in GLEICHUNG eingsetzt, um so die Güteziffern $\nu$ zu errechnen. 
-Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von \autoref{eqn:fehlerfortpflanzung} berechnen.
+Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von Gleichung \eqref{eqn:fehlerfortpflanzung} berechnen.
 \\ \\
 \centerline{$\sigma_\nu^2 = 1 \cdot \sigma_\text{$T'_1$}^2 + \bigg(\frac{\text{d}T_1}{\text{d}t}\bigg)^2 \sigma_\text{$C_w$}^2$}
 \\ \\
@@ -105,6 +105,63 @@ Diese sind in \autoref{tab:temp-guete} zu finden.
   \label{fig:plot_temp-druck2}
 \end{figure}
 
+Zur Bestimmung des Massendurchsatzes muss zuvor die Verdampfungswärme L des Gases bestimmt werden. Dies geschieht, in dem zuvor vom Manometer aufgenommene
+Druck-Temperetur Wertepaare gegeneinander aufgetragen werden und hierüber eine lineare Ausgleichsrechnung erfolgt. Die Wertepaare hierzu finden sich in \autoref {tab:temppa}.
+Die Verdampfungswärme L lässt sich dann durch die Steigung $a$ der linearen Ausgleichsgeraden und der Gaskonstanten $R$ durch $L = m \cdot R$, wobei die Ausgleichsgerade durch
+\begin{equation}
+  \label{eqt:Ausgleichsgerade}
+  y = a * x + b,
+\end{equation}
+wobei y hier der Druck und x die Temperatur, womit a die Zunahme des Druckes bei steigender Temperatur und b den Druck bei $ T = 0$.
+Die Parameter ergeben sich durch
+\begin{equation}
+\label{eqt:b}
+  b = \frac {\sum_{i=1}^n (x_i - \overline{x}) \cdot (y_i - \overline{y})}{\sum_{i=1}^n (x_i - \overline{x})^2}
+\end{equation}
+und 
+\begin{equation}
+\label{eqt:a}
+  a = \overline{y} - b \cdot \overline{x}, 
+\end{equation}
+wobei $x_i$ die Temperaturwerte und $y_i$ die Druckwerte (beides zu sehen in \autoref{tab:temppa}) sind. Die dazugehörigen Mittelwerte $\overline{x}$ und $\overline{y}$, zu n Werten (hier: $n = 10$), berechnen sich über
+\begin{equation}
+\label{eqt:mittelwert}
+  \overline{x} = \frac {1}{n} \sum_{i=1}^n x_i . 
+\end{equation}
+Somit ergeben sich nach Gleichungen \eqref{eqt:b}, \eqref{eqt:a} und \eqref{eqt:mittelwert}
+\begin{equation}
+    b = 17570,99
+\end{equation}
+und 
+\begin{equation}
+ \lvert a \rvert = 4552563,3 . 
+\end{equation}
+Die sich dadurch nach Gleichung \eqref{eqt:Ausgleichsgerade} ergebene Gerade ist in Abbildung \ref{fig:dampf} zu sehen.
+Zur Bestimmung von L ist neben der Steigung der Verdampfungkurve, die Gaskonstante $R = 8,314 \frac {\symup(J)}{\symup{mol} \symup{K}}$ nötig.
+Mit der Relation
+\begin{equation}
+  L = \lvert a \rvert R
+\end{equation}
+lässt sich die Verdampfungswärme als
+\begin{equation}
+  L = 37850011,28 \frac{\symup(J)}{\symup{mol} \symup{K}}
+\end{equation}
+berechnen.
+Zur weiteren Berechnung muss die Verdampfungswärme durch die molare Masse geteilt werden, um L in einer zur weiteren Berechnung sinnvollen Einheit zu erhalten, wobei 
+die molare Masse von Dichlordiflourmethan $M = 120,91 \frac{\symup(g)}{\symup{mol} }$ \cite{chemie} beträgt, womit
+\begin{equation}
+  L =  313042,85236953106 \frac{\symup(J)}{\symup{g} \symup{K}}
+\end{equation}
+beträgt. Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie zusehen in \autoref{unknown}.
+
+\input{../content/temppascal.tex}
+
+\begin{figure}
+  \centering
+  \includegraphics{plot-L.pdf}
+  \caption{Verdampfungkurve zu L.}
+  \label{fig:dampf}
+\end{figure}
 \input{../content/zeit-leistung.tex}
 
 \begin{figure}
