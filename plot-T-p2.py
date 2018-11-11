@@ -36,7 +36,7 @@ popt, pcov = curve_fit(func, xdata, ydata)
 plt.plot(x_line, func(x_line, *popt), "r-", label="Fit")
 
 plt.xlabel(r"$T_2$ / K")
-plt.ylabel(r"$p_b$ / $10^5$pa")
+plt.ylabel(r"$p_a$ / $10^5$pa")
 
 print(popt)
 

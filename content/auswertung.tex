@@ -1,6 +1,8 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Zeit-Temperatur-Diagramme}
+
 \input{../content/zeit-temp.tex}
 
 \begin{figure}
@@ -11,8 +13,20 @@
 \end{figure}
 
 Die Messwerte in \autoref{tab:zeit-temp} wurden in einem Diagramm dargestellt und mithilfe von Python 3.7.0 durch einen Fit der Form $T(t) = at² + bt + c$ angenähert.
-Dieses ist in \autoref{fig:plot_zeit-temp} zu sehen.
-%Werte einfügen
+Dieses ist in \autoref{fig:plot_zeit-temp} zu sehen. Die Werte für $T_1$ wurden durch
+\\ \\
+\centerline{$a_1 = -2.105 \cdot 10^\text{$-6$} \frac{\symup{K}}{\symup{s}^2}$}
+\centerline{$b_1 =  2.910 \cdot 10^\text{$-2$} \frac{\symup{K}}{\symup{s}}$}
+\centerline{$c_1 =  294.9 \symup{K}$}
+\\ \\
+beschrieben. Die Werte für $T_2$ sind
+\\ \\
+\centerline{$a_1 =  6.320 \cdot 10^\text{$-6$} \frac{\symup{K}}{\symup{s}^2}$}
+\centerline{$b_1 = -3.105 \cdot 10^\text{$-2$} \frac{\symup{K}}{\symup{s}}$}
+\centerline{$c_1 =  298.7 \symup{K}$}
+
+\subsection{Bestimmung des Differentialquotienten}
+
 Der Differentialquotient $\frac{\text{d}T_1}{\text{d}t}$ beziehungsweise $\frac{\text{d}T_2}{\text{d}t}$ lässt sich als
 \\ \\
 \centerline{$T'_1 = 2at + b$}
@@ -20,7 +34,7 @@ Der Differentialquotient $\frac{\text{d}T_1}{\text{d}t}$ beziehungsweise $\frac{
 bestimmen. 
 Der Fehler dieser Größen lässt sich mithilfe der Gauß'schen Fehlerfortpflanzung
 \begin{equation}
-  \label{eqn:fehlerfortpflanzung}
+  \label{eqt:fehlerfortpflanzung}
   \sigma_\text{u}^2 = \sum\!\bigg(\frac{\partial u}{\partial x_i}\bigg)^2 \! \sigma_i^2
 \end{equation}
 berechnen.
@@ -50,12 +64,14 @@ Somit finden sich die Werte, die in \autoref{tab:temp-temp-ableitung} zu sehen s
   \end{tabular}
 \end{table}
 
+\subsection{Bestimmung der Güteziffern des Systems}
+
 Des weiteren lässt sich die Wärmekapazität des Wassers $C_w$ mit
 \\ \\
 \centerline{$C_w = m_w c_w = \rho_w V_w c_w$}
 \\ \\
 berechnen. Dabei ist $c_w = 4.182 \frac{\textrm{kJ}}{\textrm{kg$\cdot$K}}$ in der Literatur zu finden. ZITAT
-Der Fehler wird mithilfe von \eqref{eqn:fehlerfortpflanzung} errechnet:
+Der Fehler wird mithilfe von \eqref{eqt:fehlerfortpflanzung} errechnet:
 \\ \\
 \centerline{$\sigma_\text{$C_w$} = \rho_w c_w \sigma_V$}
 \centerline{$C_w = (12.5 \pm 0.5) \cdot 10³ \frac{\textrm{J}}{\textrm{K}}$}
@@ -65,7 +81,7 @@ Die Wärmekapazität der Kupferschlange und des Behälters $C_k$ beträgt
 \centerline{$C_k = m_k c_k = 750 \frac{\textrm{J}}{\textrm{K}}$.}
 \\ \\
 Diese Werte werden in GLEICHUNG eingsetzt, um so die Güteziffern $\nu$ zu errechnen. 
-Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von Gleichung \eqref{eqn:fehlerfortpflanzung} berechnen.
+Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von Gleichung \eqref{eqt:fehlerfortpflanzung} berechnen.
 \\ \\
 \centerline{$\sigma_\nu^2 = 1 \cdot \sigma_\text{$T'_1$}^2 + \bigg(\frac{\text{d}T_1}{\text{d}t}\bigg)^2 \sigma_\text{$C_w$}^2$}
 \\ \\
@@ -105,6 +121,8 @@ Diese sind in \autoref{tab:temp-guete} zu finden.
   \caption{Die Temperaturen und der Druck in Reservoir 2 gegeneinander aufgetragen.}
   \label{fig:plot_temp-druck2}
 \end{figure}
+
+\subsection{Bestimmung des Massendurchsatzes}
 
 Zur Bestimmung des Massendurchsatzes muss zuvor die Verdampfungswärme L des Gases bestimmt werden. Dies geschieht, in dem zuvor vom Manometer aufgenommene
 Druck-Temperetur Wertepaare gegeneinander aufgetragen werden und hierüber eine lineare Ausgleichsrechnung erfolgt. Die Wertepaare hierzu finden sich in \autoref {tab:temppa}.
@@ -191,12 +209,36 @@ Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie 
   \label{fig:plot_zeit-druck}
 \end{figure}
 
-Die nötigen Werte für die Dichte des Gases $\text{Cl}_\text{2}\text{F}_\text{2}\text{C}$ $\rho_0$ bei 0°C und 1 Bar Druck sowie $\kappa$ lassen sich in der Literatur finden \cite{206}.
+\subsection{Bestimmung der mechanische Kompressorleistung}
+
+Die nötigen Werte für die Dichte des Gases $\text{Cl}_\text{2}\text{F}_\text{2}\text{C}$ $\rho_0$ bei 0°C ($T_0 = 273.15$ K) und 1 Bar ($p_0 = 10^5$ pa) Druck sowie $\kappa$ lassen sich in der Literatur finden \cite{206}.
 \\ \\
 \centerline{$\rho_0 = 5.51 \frac{\textrm{kg}}{\textrm{m}^3}$}
 \centerline{$\kappa = 1.14$}
 \\ \\
-Damit und den Werten in \autoref{tab:temp-druck} und \autoref{tab:zeit-leistung} sowie GLEICHUNG ergeben sich die Daten für die mechanische Kompressorleistung in \autoref{tab:mech-kompleistung}.
+Mithilfe der idealen Gasgleichung
+\begin{equation}
+  nR = \frac{pV}{T}
+\end{equation}
+und der Information, dass $nR = const$ gilt, folgt direkt, dass
+\begin{equation}
+  \frac{p_0 V_0}{T_0} = \frac{p_2 V_2}{T_2}
+\end{equation}
+Es gilt $V = \frac{m}{\rho}$. Dies wird in oben genannte Gleichung eingesetzt und auf beiden Seiten wird durch $m$ geteilt. Somit folgt:
+\begin{equation}
+  \frac{p_0}{\rho_0 T_0} = \frac{p_2}{\rho_2 T_2}
+\end{equation}
+Mit $\rho_2 = \rho$ und $p_2 = p_a$ folgt:
+\begin{equation}
+  \rho = \frac{\rho_0 T_0 p_a}{T_2 p_0}
+\end{equation}
+Damit kann \eqref{eqt:mech_leistung} zu
+\begin{equation}
+\label{eqt:mech-le}
+  P_\text{mech} = \frac{1}{1 - \kappa} \bigg(p_b \cdot \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a\bigg) \cdot \frac{T_2 p_0}{\rho_0 T_0 p_a} \frac{\symup{d}m}{\symup{d}t}
+\end{equation}
+
+Mit Werten in \autoref{tab:temp-druck} und \autoref{tab:zeit-leistung} sowie \eqref{eqt:mech-le} ergeben sich die Daten für die mechanische Kompressorleistung in \autoref{tab:mech-kompleistung}.
 
 \begin{table}
   \centering
