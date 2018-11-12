@@ -117,8 +117,8 @@ Diese sind in \autoref{tab:temp-guete} zu finden. Dort sind ebenfalls die mithil
   \end{tabular}
 \end{table}
 
-\input{../content/temp-druck.tex}
 
+<<<<<<< HEAD
 \begin{figure}
   \centering
   \includegraphics{plot-T-p1.pdf}
@@ -133,6 +133,24 @@ Diese sind in \autoref{tab:temp-guete} zu finden. Dort sind ebenfalls die mithil
   \label{fig:plot_temp-druck2}
 \end{figure}
 \newpage
+||||||| merged common ancestors
+\begin{figure}
+  \centering
+  \includegraphics{plot-T-p1.pdf}
+  \caption{Die Temperaturen und der Druck in Reservoir 1 gegeneinander aufgetragen.}
+  \label{fig:plot_temp-druck1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plot-T-p2.pdf}
+  \caption{Die Temperaturen und der Druck in Reservoir 2 gegeneinander aufgetragen.}
+  \label{fig:plot_temp-druck2}
+\end{figure}
+
+=======
+
+>>>>>>> scheinbar unnötige Abbildungen ausgelagert
 \subsection{Bestimmung des Massendurchsatzes}
 
 Zur Bestimmung des Massendurchsatzes muss zuvor die Verdampfungswärme L des Gases bestimmt werden. Dies geschieht, in dem zuvor vom Manometer aufgenommene
@@ -189,16 +207,16 @@ beträgt.
 \begin{figure}
   \centering
   \includegraphics{plot-L.pdf}
-  \caption{Verdampfungkurve zu L.}
+  \caption{Verdampfungkurve von Dichlordiflourmethan.}
   \label{fig:dampf}
 \end{figure}
 
-Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie in \autoref{tab:massendurchsatz} zusehen.
+Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie in \autoref{tab:massendurchsatz} zu sehen.
 Der Fehler des Massendurchsatzes lässt sich nach Gleichung \eqref{eqt:fehlerfortpflanzung} durch
 \begin{equation}
 \sigma_{\frac{dm}{dt}} = \sqrt{(\frac {C_w + C_k}{L})^2 \sigma_{\frac{dT_2}{dt}}^{2} + (-\frac{1}{L} \frac{dT_2}{dt})^2 \sigma_{C_w}^{2}}
 \end{equation}
-berechnen, wobei $\sigma_{\frac{dT_2}{dt}}$ der Fehler der Differentiale $\frac{dT_2}{dt}$ und $\sigma_w$ der Fehler der Wärmekapazität des Wassers $C_w$ ist.
+berechnen, wobei $\sigma_{\frac{dT_2}{dt}}$ der Fehler der Differentiale $\frac{dT_2}{dt}$ und $\sigma_{C_w}$ der Fehler der Wärmekapazität des Wassers $C_w$ ist.
 \begin{table}[!htp]
   \centering
   \caption{Die Massendurchsätze zu den Temperaturen.}
@@ -216,8 +234,8 @@ berechnen, wobei $\sigma_{\frac{dT_2}{dt}}$ der Fehler der Differentiale $\frac{
     \bottomrule
   \end{tabular}
 \end{table}
-\input{../content/zeit-leistung.tex}
 
+<<<<<<< HEAD
 \begin{figure}
   \centering
   \includegraphics{plot-t-P.pdf}
@@ -225,6 +243,17 @@ berechnen, wobei $\sigma_{\frac{dT_2}{dt}}$ der Fehler der Differentiale $\frac{
   \label{fig:plot_zeit-druck}
 \end{figure}
 \newpage
+||||||| merged common ancestors
+\begin{figure}
+  \centering
+  \includegraphics{plot-t-P.pdf}
+  \caption{Die elektrische Leistung am Kompressor zu den jeweiligen Zeitpunkten.}
+  \label{fig:plot_zeit-druck}
+\end{figure}
+
+=======
+
+>>>>>>> scheinbar unnötige Abbildungen ausgelagert
 \subsection{Bestimmung der mechanische Kompressorleistung}
 
 Die nötigen Werte für die Dichte des Gases $\text{Cl}_\text{2}\text{F}_\text{2}\text{C}$ $\rho_0$ bei 0°C ($T_0 = 273.15$ K) und 1 Bar ($p_0 = 10^5$ pa) Druck sowie $\kappa$ lassen sich in der Literatur finden \cite{206}.
@@ -253,7 +282,14 @@ Damit kann \eqref{eqt:mech_leistung} zu
 \label{eqt:mech-le}
   P_\text{mech} = \frac{1}{\kappa - 1} \bigg(p_b \cdot \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a\bigg) \cdot \frac{T_2 p_0}{\rho_0 T_0 p_a} \frac{\symup{d}m}{\symup{d}t}
 \end{equation}
+\input{../content/zeit-leistung.tex}
 
+\begin{figure}
+  \centering
+  \includegraphics{plot-t-P.pdf}
+  \caption{Die elektrische Leistung am Kompressor zu den jeweiligen Zeitpunkten.}
+  \label{fig:plot_zeit-druck}
+\end{figure}
 Mit Werten in \autoref{tab:temp-druck} und \autoref{tab:zeit-leistung} sowie \eqref{eqt:mech-le} ergeben sich die Daten für die mechanische Kompressorleistung in \autoref{tab:mech-kompleistung}.
 Der Fehler ergibt sich erneut nach \eqref{eqt:fehlerfortpflanzung} und ist
 
