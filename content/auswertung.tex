@@ -29,7 +29,7 @@ beschrieben. Die Werte für $T_2$ sind
 
 Der Differentialquotient $\frac{\text{d}T_1}{\text{d}t}$ beziehungsweise $\frac{\text{d}T_2}{\text{d}t}$ lässt sich als
 \\ \\
-\centerline{$T'_1 = 2at + b$}
+\centerline{$T'_i = 2a_it + b_i$     mit i = 1, 2}
 \\ \\
 bestimmen. 
 Der Fehler dieser Größen lässt sich mithilfe der Gauß'schen Fehlerfortpflanzung
@@ -80,12 +80,12 @@ Die Wärmekapazität der Kupferschlange und des Behälters $C_k$ beträgt
 \\ \\
 \centerline{$C_k = m_k c_k = 750 \frac{\textrm{J}}{\textrm{K}}$.}
 \\ \\
-Diese Werte werden in GLEICHUNG eingsetzt, um so die Güteziffern $\nu$ zu errechnen. 
+Diese Werte werden in \eqref{eqt:wärme_zeit} \eqref{eqt:güte} eingsetzt, um so die Güteziffern $\nu$ zu errechnen. 
 Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von Gleichung \eqref{eqt:fehlerfortpflanzung} berechnen.
 \\ \\
-\centerline{$\sigma_\nu^2 = 1 \cdot \sigma_\text{$T'_1$}^2 + \bigg(\frac{\text{d}T_1}{\text{d}t}\bigg)^2 \sigma_\text{$C_w$}^2$}
+\centerline{$\sigma_\nu^2 = 1 \cdot \sigma_\text{$T'_1$}^2 + \bigg(\frac{\symup{d}T_1}{\symup{d}t}\bigg)^2 \sigma_\text{$C_w$}^2$}
 \\ \\
-Diese sind in \autoref{tab:temp-guete} zu finden.
+Diese sind in \autoref{tab:temp-guete} zu finden. Dort sind ebenfalls die mithilfe von \eqref{eqt:Güte} berechneten Idealwerte zu sehen.
 
 \begin{table}[!htp]
   \centering
@@ -182,7 +182,7 @@ beträgt.
   \label{fig:dampf}
 \end{figure}
 \input{../content/zeit-leistung.tex}
-Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie in \autoref{tab:massendurchsatzdurchsatz} zusehen.
+Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie in \autoref{tab:massendurchsatz} zusehen.
 \begin{table}[!htp]
   \centering
   \caption{Die Massendurchsätze zu den Temperaturen.}
@@ -255,7 +255,7 @@ dabei sind
 
 \begin{equation}
   \frac{\partial P_\text{mech}}{\partial p_a} =
-    -\frac{T_2 p_0}{\rho_0 T_0 \kappa} \frac{p_b}{p_a^2} \sqrt[\kappa]{\frac{a}{b}}
+    -\frac{T_2 p_0}{\rho_0 T_0 \kappa} \frac{p_b}{p_a^2} \sqrt[\kappa]{\frac{p_a}{p_b}}
 \end{equation}
 
 \begin{equation}
@@ -269,14 +269,14 @@ dabei sind
   \label{tab:mech-kompleistung}
   \begin{tabular}{
     S[table-format=3.1] @{${}\pm{}$} S[table-format=1.1]
-    S[table-format=2.3] @{${}\pm{}$} S[table-format=1.0]}
+    S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]}
     \toprule
-    \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$P_\text{mech}$} \\
+    \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$P_\text{mech}$ / W} \\
     \midrule
-    301.3 & 0.1 & 36.170 & 0 \\
-    310.3 & 0.1 & 20.820 & 0 \\
-    315.0 & 0.1 & 19.775 & 0 \\
-    322.3 & 0.1 & 18.377 & 0 \\
+    301.3 & 0.1 & 36.170 & 0.012 \\
+    310.3 & 0.1 & 20.820 & 0.010 \\
+    315.0 & 0.1 & 19.775 & 0.009 \\
+    322.3 & 0.1 & 18.377 & 0.007 \\
     \bottomrule
   \end{tabular}
 \end{table}
