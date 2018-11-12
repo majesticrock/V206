@@ -9,8 +9,8 @@ def csv_read(pathToFile, delimiter=";"):
             content.append((line.rstrip()).split(delimiter))
     return content
 
-def func(x, a, b, c):
-    return a*x**2 + b*x + c
+def func(x, a, b, c, d):
+    return a*x**3 + b*x**2 + c*x + d
 
 werte = csv_read("csv/zeit-temperatur.csv")
 xdata = np.zeros(18)
@@ -46,7 +46,12 @@ plt.xlabel(r"$t$ / s")
 plt.ylabel(r"$T$ / K")
 
 print(popt1)
+for i in range(4):
+    print(np.sqrt(pcov1[i][i]))
+print("\n")
 print(popt2)
+for i in range(4):
+    print(np.sqrt(pcov2[i][i]))
 
 plt.legend()
 plt.tight_layout()
