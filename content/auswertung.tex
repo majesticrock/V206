@@ -11,8 +11,8 @@
   \label{fig:plot_zeit-temp}
 \end{figure}
 
-Die Messwerte in \autoref{tab:zeit-temp} wurden in einem Diagramm dargestellt und mithilfe von Python 3.7.0 durch einen Fit der Form $T(t) = at^3 + bt^2 + ct + d$ angenähert.
-Dieses ist in \autoref{fig:plot_zeit-temp} zu sehen. Die Werte für $T_1$ wurden durch
+Die Messwerte in \autoref{tab:zeit-temp} werden in einem Diagramm dargestellt und mithilfe von Python 3.7.0 durch einen Fit der Form $T(t) = at^3 + bt^2 + ct + d$ angenähert.
+Dieses ist in \autoref{fig:plot_zeit-temp} zu sehen. Die Werte für $T_1$ werden durch
 \\ \\
 \centerline{$a_1 = (-1.1 \pm 0.3 ) \cdot 10^\text{$-8$} \frac{\symup{K}}{\symup{s}^3}$}
 \centerline{$b_1 = ( 1.7 \pm 0.4 ) \cdot 10^\text{$-5$} \frac{\symup{K}}{\symup{s}^2}$}
@@ -48,7 +48,6 @@ In diese werden die Werte eingesetzt, um so $\sigma_\text{$T'_1$}$ und $\sigma_\
 \\ \\
 Somit finden sich die Werte, die in \autoref{tab:temp-temp-ableitung} zu sehen sind. 
 %zeiten 180 540 720 1020
-%TODO: Fehler neu berechnen
 \begin{table}[!htp]
   \centering
   \caption{Die errechnten Änderungen der Temperaturen.}
@@ -98,8 +97,11 @@ Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von Gleichung \
   \bigg( \frac{1}{P} \frac{\symup{d}T_1}{\symup{d}t} \cdot \sigma_\text{$C_w$} \bigg)^2 + 
   \bigg( \frac{C_w + C_k}{P} \sigma_\text{$T'_1$} \bigg)^2$}
 \\ \\
-Diese sind in \autoref{tab:temp-guete} zu finden. Dort sind ebenfalls die mithilfe von \eqref{eqt:Güte} berechneten Idealwerte zu sehen.
-%TODO: Fehler der idealen Güteziffern
+Diese sind in \autoref{tab:temp-guete} zu finden. Dort sind ebenfalls die mithilfe von \eqref{eqt:Güte} berechneten Idealwerte zu sehen. 
+Die Fehler der idealen Güteziffern werden ebenfalls mittels \eqref{eqt:fehlerfortpflanzung} berechnet:
+\\ \\
+\centerline{$\sigma_\text{$\nu_\text{ideal}$} = \sqrt{ \bigg( \frac{T_2}{(T_1 - T_2)^2} \cdot \sigma_\text{$T_1$} \bigg)^2 + \bigg( \frac{T_1}{(T_1 - T_2)^2} \cdot \sigma_\text{$T_2$} \bigg)^2 }$}
+\\
 \begin{table}[!htp]
   \centering
   \caption{Die Güteziffern bei unterschiedlichen Temperaturen.}
@@ -108,14 +110,14 @@ Diese sind in \autoref{tab:temp-guete} zu finden. Dort sind ebenfalls die mithil
     S[table-format=4.0] @{${}\pm{}$} S[table-format=1.0]
     S[table-format=3.1] @{${}\pm{}$} S[table-format=1.1]
     S[table-format=1.1] @{${}\pm{}$} S[table-format=1.1]
-    S[table-format=2.1]}
+    S[table-format=2.1] @{${}\pm{}$} S[table-format=1.2]}
     \toprule
-    \multicolumn{2}{c}{$t$ / s} & \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$\nu$} & {$\nu_\text{ideal}$} \\
+    \multicolumn{2}{c}{$t$ / s} & \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$\nu$} & \multicolumn{2}{c}{$\nu_\text{ideal}$} \\
     \midrule
-     180 & 5 & 301.3 & 0.1 & 1.7 & 0.4 & 41.3 \\
-     540 & 5 & 310.3 & 0.1 & 1.7 & 0.6 & 11.7 \\
-     720 & 5 & 315.0 & 0.1 & 1.6 & 0.7 &  8.8 \\
-    1020 & 5 & 322.3 & 0.1 & 1.2 & 0.8 &  6.7 \\
+     180 & 5 & 301.3 & 0.1 & 1.7 & 0.4 & 41.3 &  0.8  \\
+     540 & 5 & 310.3 & 0.1 & 1.7 & 0.6 & 11.7 &  0.06 \\
+     720 & 5 & 315.0 & 0.1 & 1.6 & 0.7 &  8.8 &  0.03 \\
+    1020 & 5 & 322.3 & 0.1 & 1.2 & 0.8 &  6.7 &  0.02 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -184,7 +186,7 @@ beträgt.
 Nach \eqref{eqt:massendurchsatz} berechnen sich dann die Massendurchsätze, wie in \autoref{tab:massendurchsatz} zu sehen.
 Der Fehler des Massendurchsatzes lässt sich nach Gleichung \eqref{eqt:fehlerfortpflanzung} durch
 \begin{equation}
-\sigma_{\frac{dm}{dt}} = \sqrt{(\frac {C_w + C_k}{L})^2 \sigma_{\frac{dT_2}{dt}}^{2} + (-\frac{1}{L} \frac{dT_2}{dt})^2 \sigma_{C_w}^{2}}
+\sigma_{\frac{dm}{dt}} = \sqrt{\bigg(\frac {C_w + C_k}{L}\bigg)^2 \sigma_{\frac{dT_2}{dt}}^{2} + \bigg(-\frac{1}{L} \frac{dT_2}{dt}\bigg)^2 \sigma_{C_w}^{2}}
 \end{equation}
 berechnen, wobei $\sigma_{\frac{dT_2}{dt}}$ der Fehler der Differentiale $\frac{dT_2}{dt}$ und $\sigma_{C_w}$ der Fehler der Wärmekapazität des Wassers $C_w$ ist.
 \begin{table}[!htp]
@@ -205,35 +207,6 @@ berechnen, wobei $\sigma_{\frac{dT_2}{dt}}$ der Fehler der Differentiale $\frac{
   \end{tabular}
 \end{table}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-||||||| merged common ancestors
-\begin{figure}
-  \centering
-  \includegraphics{plot-t-P.pdf}
-  \caption{Die elektrische Leistung am Kompressor zu den jeweiligen Zeitpunkten.}
-  \label{fig:plot_zeit-druck}
-\end{figure}
-\newpage
-=======
-\begin{figure}
-  \centering
-  \includegraphics{plot-t-P.pdf}
-  \caption{Die elektrische Leistung am Kompressor zu den jeweiligen Zeitpunkten.}
-  \label{fig:plot_zeit-druck}
-\end{figure}
-
->>>>>>> verbesserung I
-||||||| merged common ancestors
-\begin{figure}
-  \centering
-  \includegraphics{plot-t-P.pdf}
-  \caption{Die elektrische Leistung am Kompressor zu den jeweiligen Zeitpunkten.}
-  \label{fig:plot_zeit-druck}
-\end{figure}
-
-=======
->>>>>>> merged
 \subsection{Bestimmung der mechanische Kompressorleistung}
 
 Die nötigen Werte für die Dichte des Gases $\text{Cl}_\text{2}\text{F}_\text{2}\text{C}$ $\rho_0$ bei 0°C ($T_0 = 273.15$ K) und 1 Bar ($p_0 = 10^5$ pa) Druck sowie $\kappa$ lassen sich in der Literatur finden \cite{206}:
@@ -276,9 +249,7 @@ Der Fehler ergibt sich erneut nach \eqref{eqt:fehlerfortpflanzung} und ist
 dabei sind
 
 \begin{equation}
-  \frac{\partial P_\text{mech}}{\partial p_b} =
-    \frac{T_2 p_0}{\rho_0 T_0 \kappa} \frac{1}{p_a} \sqrt[\kappa]{\frac{p_a}{p_b}} 
-    %\frac{T_2 p_0}{(\kappa -1) \rho_0 T_0 p_a} \bigg( \sqrt[\kappa]{\frac{p_a}{p_b}} - \frac{1}{kappa} \sqrt[\kappa]{\frac{p_a}{p_b}} \bigg)
+  \frac{\partial P_\text{mech}}{\partial p_b} = \frac{T_2 p_0}{\rho_0 T_0 \kappa} \frac{1}{p_a} \sqrt[\kappa]{\frac{p_a}{p_b}} 
 \end{equation}
 
 \begin{equation}
@@ -290,7 +261,8 @@ dabei sind
   \frac{\partial P_\text{mech}}{\partial (\frac{\textrm{d}m}{\textrm{d}t})} =
     \frac{T_2 p_0}{\rho_0 T_0 (\kappa - 1)} \frac{1}{p_a} \bigg( p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \bigg)
 \end{equation}
-%TODO: Dichten einfügen, was steht da auf dem Zettel?
+%TODO: Dichten einfügen
+%TODO: Mit neuem Massendurchsatz berechnen
 \begin{table}
   \centering
   \caption{Mechanische Kompressorleistung.}
