@@ -230,14 +230,33 @@ Mit $\rho_2 = \rho$ und $p_2 = p_a$ folgt:
 \begin{equation}
   \rho = \frac{\rho_0 T_0 p_a}{T_2 p_0}
 \end{equation}
-Damit kann \eqref{eqt:mech_leistung} zu
+Somit ergeben sich die Werte in \autoref{tab:dichten} und \eqref{eqt:mech_leistung} kann zu
 \begin{equation}
 \label{eqt:mech-le}
   P_\text{mech} = \frac{1}{\kappa - 1} \bigg(p_b \cdot \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a\bigg) \cdot \frac{T_2 p_0}{\rho_0 T_0 p_a} \frac{\symup{d}m}{\symup{d}t}
 \end{equation}
+umgeformt werden.
 \input{../content/zeit-leistung.tex}
 
 \input{../content/temp-druck.tex}
+
+\begin{table}
+\centering
+  \caption{Die Dichten zu den entsprechenden Zeitpunkten.}
+  \label{tab:dichten}
+  \begin{tabular}{
+    S[table-format=4.0] @{${}\pm{}$} S[table-format=1.0]
+    S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]}
+    \toprule
+    \multicolumn{2}{c}{$t$ / s} & \multicolumn{2}{c}{$\rho$ / $\frac{\symup{kg}}{\symup{m}^3}$} \\
+    \midrule
+       180 & 5 & 15.358 & 0.005 \\
+       540 & 5 & 16.976 & 0.006 \\
+       720 & 5 & 17.244 & 0.006 \\
+      1020 & 5 & 18.127 & 0.007 \\
+     \bottomrule
+  \end{tabular}
+\end{table}
 
 Mit Werten in \autoref{tab:temp-druck} und \autoref{tab:zeit-leistung} sowie \eqref{eqt:mech-le} ergeben sich die Daten für die mechanische Kompressorleistung in \autoref{tab:mech-kompleistung}.
 Der Fehler ergibt sich erneut nach \eqref{eqt:fehlerfortpflanzung} und ist
