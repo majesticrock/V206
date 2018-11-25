@@ -87,13 +87,13 @@ Die Wärmekapazität der Kupferschlange und des Behälters $C_k$ wird an der App
 \\ \\
 Die Gleichungen \eqref{eqt:wärme_zeit} und \eqref{eqt:güte} lassen sich zusammenfügen und der Differenzenquotient lässt sich durch einen Differentialquotienten ersetzen.
 \begin{equation}
-  \nu = \frac{C_w + C_k}{P} \frac{\symup{d}T_1}{\symup{d}t}
+  \nu_\text{real} = \frac{C_w + C_k}{P} \frac{\symup{d}T_1}{\symup{d}t}
 \end{equation}
 
-Dort werden die oben genannten Werte eingesetzt, um so die Güteziffern $\nu$ zu errechnen. 
+Dort werden die oben genannten Werte eingesetzt, um so die Güteziffern $\nu_\text{real}$ zu errechnen. 
 Dieser Fehler $\sigma_\nu$ dieses lässt sich ebenfalls mithilfe von Gleichung \eqref{eqt:fehlerfortpflanzung} berechnen.
 \\ \\
-\centerline{$\sigma_\nu^2 = \bigg( \frac{C_w + C_k}{P^2} \frac{\symup{d}T_1}{\symup{d}t} \cdot \sigma_P \bigg)^2 + 
+\centerline{$\sigma_\text{$\nu_\text{real}$}^2 = \bigg( \frac{C_w + C_k}{P^2} \frac{\symup{d}T_1}{\symup{d}t} \cdot \sigma_P \bigg)^2 + 
   \bigg( \frac{1}{P} \frac{\symup{d}T_1}{\symup{d}t} \cdot \sigma_\text{$C_w$} \bigg)^2 + 
   \bigg( \frac{C_w + C_k}{P} \sigma_\text{$T'_1$} \bigg)^2$}
 \\ \\
@@ -110,14 +110,15 @@ Die Fehler der idealen Güteziffern werden ebenfalls mittels \eqref{eqt:fehlerfo
     S[table-format=4.0] @{${}\pm{}$} S[table-format=1.0]
     S[table-format=3.1] @{${}\pm{}$} S[table-format=1.1]
     S[table-format=1.1] @{${}\pm{}$} S[table-format=1.1]
-    S[table-format=2.1] @{${}\pm{}$} S[table-format=1.2]}
+    S[table-format=2.1] @{${}\pm{}$} S[table-format=1.2]
+    S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]}
     \toprule
-    \multicolumn{2}{c}{$t$ / s} & \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$\nu$} & \multicolumn{2}{c}{$\nu_\text{ideal}$} \\
+    \multicolumn{2}{c}{$t$ / s} & \multicolumn{2}{c}{$T_1$ / K} & \multicolumn{2}{c}{$\nu_\text{real}$} & \multicolumn{2}{c}{$\nu_\text{ideal}$} & \multicolumn{2}{c}{Abweichung / \%} \\
     \midrule
-     180 & 5 & 301.3 & 0.1 & 1.7 & 0.4 & 41.3 &  0.8  \\
-     540 & 5 & 310.3 & 0.1 & 1.7 & 0.6 & 11.7 &  0.06 \\
-     720 & 5 & 315.0 & 0.1 & 1.6 & 0.7 &  8.8 &  0.03 \\
-    1020 & 5 & 322.3 & 0.1 & 1.2 & 0.8 &  6.7 &  0.02 \\
+     180 & 5 & 301.3 & 0.1 & 1.7 & 0.4 & 41.3 &  0.8  & 0.041 & 0.010 \\
+     540 & 5 & 310.3 & 0.1 & 1.7 & 0.6 & 11.7 &  0.06 & 0.15  & 0.05  \\
+     720 & 5 & 315.0 & 0.1 & 1.6 & 0.7 &  8.8 &  0.03 & 0.18  & 0.08  \\
+    1020 & 5 & 322.3 & 0.1 & 1.2 & 0.8 &  6.7 &  0.02 & 0.18  & 0.12  \\
     \bottomrule
   \end{tabular}
 \end{table}
