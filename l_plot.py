@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from uncertainties import ufloat
 def csv_read(pathToFile, delimiter=";"):
     with open(pathToFile, "r") as f:
         content = []
@@ -21,18 +22,27 @@ for values in werte:
     if(ignore):
         ignore = False
     else:
-        xdata[i] = float(values[1])
         ydata[i] = float(values[0])
+        xdata[i] = float(values[1])
+        
         i+=1
-x_line = np.linspace(270, 330)
+
+xdata = 1/xdata
+ydata =np.log(ydata)
+x_line = np.linspace(1/270, 1/330)
 plt.plot(xdata, ydata, 'bx', label="Wertepaare")
 popt1, pcov1 = curve_fit(func, xdata, ydata)
 plt.plot(x_line, func(x_line, *popt1), "r-", label="Ausgleichsgerade")
-
-plt.xlabel(r"$T$ / K")
-plt.ylabel(r"$p$ / bar")
+plt.xlabel(r"$\frac{1}{T}$ / $\frac{1}{\symup{K}}")
+plt.ylabel(r"$\ln (p)$")
 
 print(popt1)
+errors = np.sqrt(np.diag(pcov1))
+print(errors)
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot-L.pdf")
+x = ufloat( 2408.07451854 , 29.66240906)
+r = 8.3144598
+print(x * r)
+print(x*r/120.91)

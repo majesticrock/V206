@@ -34,7 +34,7 @@
     muss folgende Relation gelten:
     \begin{equation}
       \label{eqt:güte_temp}
-      \frac{Q_1}{T_1} - \frac{Q_2}{T_2} = 0 .
+      \frac{Q_1}{T_1} - \frac{Q_2}{T_2} > 0 .
     \end{equation}
     Aus den Gleichungen \eqref{eqt:gg} und \eqref{eqt:güte_temp} lässt sich die Güte einer idealisierten Wärmepumpe als
     \begin{equation}
@@ -55,7 +55,7 @@
       \nu = \frac {\Delta Q_1}{\Delta t P}.
     \end{equation}
   \subsection{Massendurchsatz}
-    Der Massendurchsatz bezeichnet die Masse an Gas, welche durch die Rohre strömt.
+    Der Massendurchsatz bezeichnet die Masse an Gas, welche pro Zeiteinheit durch die Rohre strömt.
     Hierzu muss wie zuvor ein Differentialquotient gebildet werden. Für $\frac {\Delta T_2}{\Delta t}$ ergibt sich für die abgebene Wärmemenge pro Zeiteinheit $\Delta t$
     \begin{equation}
       \label{eqt:Diff_2}
@@ -93,4 +93,5 @@
       \label{eqt:mech_leistung}
       P = \frac {\Delta A_m} {\Delta t} = \frac {1}{\kappa -1} \bigg(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a\bigg) \frac {1}{\rho} \frac {\Delta m} {\Delta t}  
     \end{equation}  
-    darstellen, wobei $\rho$ die Dichte des Gases ist und $\frac {1}{\rho} \frac {\Delta m} {\Delta t} = \frac {\Delta V}{\Delta t}$
+    darstellen, wobei $\rho$ die Dichte des Gases ist und $\frac {1}{\rho} \frac {\Delta m} {\Delta t} = \frac {\Delta V}{\Delta t}$.
+    $\kappa$ beschreibt dabei das Wärmekapazitätsverhältnis.
